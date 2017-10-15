@@ -15,15 +15,15 @@ Windows -> Show View -> Servers. Then in the servers view, right click and add n
 
 4. Run test with Postman<br />
 Make a request to aqmRequestProcess to start, enqueue or dequeue to the aircraft queue. <br />
-4.1 Request start<br />
+  4.1 Request start<br />
 Put http://localhost:8080/AC_System/ServiceAC?request=Start in POSTMAN with GET request and see the following result {"Start":"success"} if start success.<br />
-4.2 Request Enqueue<br />
+  4.2 Request Enqueue<br />
 Put http://localhost:8080/AC_System/ServiceAC in POSTMAN with POST request and post the request following this format:<br />
 ![screen shot 2017-10-14 at 8 28 26 pm](https://user-images.githubusercontent.com/21348235/31580465-69a8a170-b11e-11e7-974c-491cc1788b4a.png)<br/>
 The three arguments in 'AC' are aircraft id,  aircraft type and aircraft size in the respective order. You will see the following result: {"Enqueue":"success"} for a success enqueue request, {"Enqueue":"Already in the queue"} for an aircraft attempted to enqueue while it is already in the queue, {"Enqueue":"fail"} for a fail enqueue request.
-4.3 Request Dequeue<br />
+  4.3 Request Dequeue<br />
 Put http://localhost:8080/AC_System/ServiceAC?request=Dequeue in POSTMAN with GET request and see the following result with an aircraft id: {"Dequeue":"3"}
-4.4 Request GetQueue<br />
+  4.4 Request GetQueue<br />
 Put http://localhost:8080/AC_System/ServiceAC?request=GetQueue in POSTMAN with GET request and see the following result with a list of aircraft id: {"GetQueue":"[1, 2]"}
 
 5. Test example<br />
