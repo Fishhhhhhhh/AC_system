@@ -1,0 +1,76 @@
+1. Start - Postman [GET]
+http://localhost:8080/AC_System/ServiceAC?request=Start
+[Expected result: {"Start":"success"}]
+
+2. Enqueue - Postman [Post] - send 5 request
+http://localhost:8080/AC_System/ServiceAC
+Raw data in the body:
+2.1 
+{
+'request':'Enqueue',
+'AC':[
+'1',
+'passenger',
+'small'
+]
+}
+[Expected result: {"Enqueue":"success"}]
+
+2.2
+{
+'request':'Enqueue',
+'AC':[
+'2',
+'passenger',
+'large'
+]
+}
+[Expected result: {"Enqueue":"success"}]
+
+2.3
+{
+'request':'Enqueue',
+'AC':[
+'3',
+'cargo',
+'large'
+]
+}
+[Expected result: {"Enqueue":"success"}]
+
+2.4
+{
+'request':'Enqueue',
+'AC':[
+'4',
+'passenger',
+'large'
+]
+}
+[Expected result: {"Enqueue":"success"}]
+
+2.5
+{
+'request':'Enqueue',
+'AC':[
+'5',
+'cargo',
+'small'
+]
+}
+[Expected result: {"Enqueue":"success"}]
+
+3. GetQueue - Postman [GET]
+http://localhost:8080/AC_System/ServiceAC?request=GetQueue
+[Expected result: {"GetQueue":"[1, 2, 3, 4, 5]"}]
+
+
+4. Dequeue - Postman [GET] - send 6 request
+http://localhost:8080/AC_System/ServiceAC?request=Dequeue
+[Expected result:  {"Dequeue":"2"}]
+[Expected result:  {"Dequeue":"4"}]
+[Expected result:  {"Dequeue":"1"}]
+[Expected result:  {"Dequeue":"3"}]
+[Expected result:  {"Dequeue":"5"}]
+[Expected result:  {"Dequeue":"queue is empty"}]
+
